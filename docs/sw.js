@@ -1,5 +1,5 @@
-const VERSION = "0044e919d193822d";
-const FILES = ["index.html","assets/index-D_vHjGPC.css","assets/index-DeytGYpO.js","assets/last-pier-ZofxUHlq.svg"];
+const VERSION = "956b0ed43998800f";
+const FILES = ["index.html","assets/index-BnZ7SmuS.js","assets/index-wmzq4X3e.css","assets/last-pier-ZofxUHlq.svg"];
 const scope = self.registration.scope;
 const prefix = 'last-pier:' + scope + ':';
 const cacheName = prefix + VERSION;
