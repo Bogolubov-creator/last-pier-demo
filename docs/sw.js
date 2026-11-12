@@ -1,5 +1,5 @@
-const VERSION = "8ea7e1f9541a011f";
-const FILES = ["index.html","assets/golos-text-cyrillic-ext-wght-normal-hICkpzq7.woff2","assets/golos-text-cyrillic-wght-normal-mKek_fSS.woff2","assets/golos-text-latin-ext-wght-normal-B-I5lbAQ.woff2","assets/golos-text-latin-wght-normal-BS5oQT7X.woff2","assets/index-C5cp_v79.css","assets/index-DlAo5nH1.js","assets/last-pier-ZofxUHlq.svg","assets/oswald-cyrillic-ext-wght-normal-DLWmRmaW.woff2","assets/oswald-cyrillic-wght-normal-C8sJyxwB.woff2","assets/oswald-latin-ext-wght-normal-Dj_1K-Kw.woff2","assets/oswald-latin-wght-normal-CzS3kehr.woff2","assets/oswald-vietnamese-wght-normal-Tdf5mmdl.woff2","assets/shop-items-D_OLdHtB.webp","assets/winter-harbor-cEUpKvAI.webp"];
+const VERSION = "60032507f7883e0e";
+const FILES = ["index.html","assets/golos-text-cyrillic-ext-wght-normal-hICkpzq7.woff2","assets/golos-text-cyrillic-wght-normal-mKek_fSS.woff2","assets/golos-text-latin-ext-wght-normal-B-I5lbAQ.woff2","assets/golos-text-latin-wght-normal-BS5oQT7X.woff2","assets/index-BfaIO53K.js","assets/index-C5cp_v79.css","assets/last-pier-ZofxUHlq.svg","assets/oswald-cyrillic-ext-wght-normal-DLWmRmaW.woff2","assets/oswald-cyrillic-wght-normal-C8sJyxwB.woff2","assets/oswald-latin-ext-wght-normal-Dj_1K-Kw.woff2","assets/oswald-latin-wght-normal-CzS3kehr.woff2","assets/oswald-vietnamese-wght-normal-Tdf5mmdl.woff2","assets/shop-items-D_OLdHtB.webp","assets/winter-harbor-cEUpKvAI.webp"];
 const scope = self.registration.scope;
 const prefix = 'last-pier:' + scope + ':';
 const cacheName = prefix + VERSION;
