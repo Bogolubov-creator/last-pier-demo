@@ -1,10 +1,13 @@
-const VERSION = "60032507f7883e0e";
-const FILES = ["index.html","assets/golos-text-cyrillic-ext-wght-normal-hICkpzq7.woff2","assets/golos-text-cyrillic-wght-normal-mKek_fSS.woff2","assets/golos-text-latin-ext-wght-normal-B-I5lbAQ.woff2","assets/golos-text-latin-wght-normal-BS5oQT7X.woff2","assets/index-BfaIO53K.js","assets/index-C5cp_v79.css","assets/last-pier-ZofxUHlq.svg","assets/oswald-cyrillic-ext-wght-normal-DLWmRmaW.woff2","assets/oswald-cyrillic-wght-normal-C8sJyxwB.woff2","assets/oswald-latin-ext-wght-normal-Dj_1K-Kw.woff2","assets/oswald-latin-wght-normal-CzS3kehr.woff2","assets/oswald-vietnamese-wght-normal-Tdf5mmdl.woff2","assets/shop-items-D_OLdHtB.webp","assets/winter-harbor-cEUpKvAI.webp"];
+const VERSION = "4eb69bccaa635d36";
+const FILES = ["index.html","assets/golos-text-cyrillic-ext-wght-normal-hICkpzq7.woff2","assets/golos-text-cyrillic-wght-normal-mKek_fSS.woff2","assets/golos-text-latin-ext-wght-normal-B-I5lbAQ.woff2","assets/golos-text-latin-wght-normal-BS5oQT7X.woff2","assets/index-CByJIllD.js","assets/index-DHwUoniR.css","assets/last-pier-ZofxUHlq.svg","assets/oswald-cyrillic-ext-wght-normal-DLWmRmaW.woff2","assets/oswald-cyrillic-wght-normal-C8sJyxwB.woff2","assets/oswald-latin-ext-wght-normal-Dj_1K-Kw.woff2","assets/oswald-latin-wght-normal-CzS3kehr.woff2","assets/oswald-vietnamese-wght-normal-Tdf5mmdl.woff2","assets/shop-items-D_OLdHtB.webp","assets/winter-harbor-mobile-N-1cP3r1.webp"];
+const HERO = {"desktop":"assets/winter-harbor-cEUpKvAI.webp","offline":"assets/winter-harbor-mobile-N-1cP3r1.webp"};
 const scope = self.registration.scope;
 const prefix = 'last-pier:' + scope + ':';
 const cacheName = prefix + VERSION;
 const index = new URL('index.html', scope).href;
 const files = new Set(FILES.map(file => new URL(file, scope).href));
+const desktopHero = new URL(HERO.desktop, scope).href;
+const offlineHero = new URL(HERO.offline, scope).href;
 
 self.addEventListener('install', event => {
   const requests = [...files].map(url => new Request(url, { cache: 'reload' }));
@@ -32,5 +35,10 @@ self.addEventListener('fetch', event => {
     }));
   } else if (files.has(url.href) && url.href !== index) {
     event.respondWith(caches.open(cacheName).then(async cache => await cache.match(request) ?? fetch(request)));
+  } else if (url.href === desktopHero) {
+    event.respondWith(fetch(request).catch(async () => {
+      const cache = await caches.open(cacheName);
+      return await cache.match(offlineHero) ?? Response.error();
+    }));
   }
 });
